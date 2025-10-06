@@ -8,19 +8,8 @@
 
 import Foundation
 
-public enum HTTPMethod: String {
-    case post = "POST"
-    case get = "GET"
-    case put = "PUT"
-    case delete = "DELETE"
-}
-
 public enum Scheme: String {
     case https
-}
-
-public enum Host: String {
-    case unsplash = "unsplash.com"
 }
 
 /// A lightweight, extensible path segment.
@@ -47,4 +36,17 @@ public enum Path: Sendable {
     public static func build(_ paths: [Path]) -> String {
         paths.map(\.value).joined(separator: "/")
     }
+}
+
+public enum HTTPMethod: String {
+    case post = "POST"
+    case get = "GET"
+    case put = "PUT"
+    case delete = "DELETE"
+}
+
+enum HTTPHeaderField: String {
+    case acceptVersion = "Accept-Version"
+    case authorization = "Authorization"
+    case accept = "Accept"
 }
