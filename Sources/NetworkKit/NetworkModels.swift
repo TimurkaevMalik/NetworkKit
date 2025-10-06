@@ -1,6 +1,6 @@
 //
 //  Host.swift
-//  UnspAuthoriztion
+//  NetworkKit
 //
 //  Created by Malik Timurkaev on 27.09.2025.
 //
@@ -35,7 +35,7 @@ public enum Host: String {
 /// // Usage
 /// Path.build([.sample2, .sample1]) // "sample2/sample1"
 /// ```
-public enum Path {
+public enum Path: Sendable {
     case segment(String)
 
     public var value: String {

@@ -1,6 +1,6 @@
 //
 //  StorageKeys.swift
-//  UnspAuthorization
+//  NetworkKit
 //
 //  Created by Malik Timurkaev on 03.10.2025.
 //

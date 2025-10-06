@@ -1,6 +1,6 @@
 //
 //  URLBuilder.swift
-//  UnspAuthoriztion
+//  NetworkKit
 //
 //  Created by Malik Timurkaev on 27.09.2025.
 //
