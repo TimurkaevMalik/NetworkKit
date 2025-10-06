@@ -45,7 +45,7 @@ public enum HTTPMethod: String {
     case delete = "DELETE"
 }
 
-enum HTTPHeaderField: String {
+public enum HTTPHeaderField: String {
     case acceptVersion = "Accept-Version"
     case authorization = "Authorization"
     case accept = "Accept"

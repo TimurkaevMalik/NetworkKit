@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum NetworkError: Error, Sendable {
+public enum NetworkError: Error, Sendable {
     case invalidURL
     case httpStatus(Int, Data? = nil)
     case decodingFailed(underlying: Error)

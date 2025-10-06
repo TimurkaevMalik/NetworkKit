@@ -8,9 +8,9 @@
 import Foundation
 
 @propertyWrapper
-struct DefaultEmptyString: Decodable {
-    var wrappedValue: String
-    init(from decoder: any Decoder) throws {
+public struct DefaultEmptyString: Decodable {
+    public var wrappedValue: String
+    public init(from decoder: any Decoder) throws {
         let container = try decoder.singleValueContainer()
         wrappedValue = (try? container.decode(String.self)) ?? ""
     }
