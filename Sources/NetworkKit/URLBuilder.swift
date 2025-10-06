@@ -11,6 +11,8 @@ public final class URLBuilder {
     private var urlComponents = URLComponents()
     private var components: [URLComponent] = []
     
+    public init() {}
+    
     @discardableResult
     public func scheme(_ value: String) -> Self {
         components.append(.scheme(value))
