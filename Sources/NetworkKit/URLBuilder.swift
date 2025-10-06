@@ -1,0 +1,73 @@
+//
+//  URLBuilder.swift
+//  UnspAuthoriztion
+//
+//  Created by Malik Timurkaev on 27.09.2025.
+//
+
+import Foundation
+
+public final class URLBuilder {
+    private var urlComponents = URLComponents()
+    private var components: [URLComponent] = []
+    
+    @discardableResult
+    public func scheme(_ value: String) -> Self {
+        components.append(.scheme(value))
+        return self
+    }
+    
+    @discardableResult
+    public func host(_ value: String) -> Self {
+        components.append(.host(value))
+        return self
+    }
+    
+    @discardableResult
+    public func path(_ value: String) -> Self {
+        components.append(.path(value))
+        return self
+    }
+    
+    @discardableResult
+    public func queryItem(name: String, value: String) -> Self {
+        components.append(.queryItem(name: name, value: value))
+        return self
+    }
+    
+    public func build() -> URL? {
+        for component in components {
+            switch component {
+            case .scheme(let scheme):
+                urlComponents.scheme = scheme
+            case .host(let host):
+                urlComponents.host = host
+            case .path(let path):
+                if urlComponents.path.isEmpty {
+                    urlComponents.path = "/" + path
+                } else {
+                    urlComponents.path += "/" + path
+                }
+                
+            case .queryItem(let name, let value):
+                var items = urlComponents.queryItems ?? []
+                items.append(URLQueryItem(name: name, value: value))
+                urlComponents.queryItems = items
+            }
+        }
+        
+        return urlComponents.url
+    }
+    
+    public func reset() {
+        urlComponents.queryItems?.removeAll()
+        urlComponents.path = ""
+    }
+    
+    private enum URLComponent {
+        case scheme(String)
+        case host(String)
+        case path(String)
+        case queryItem(name: String, value: String)
+    }
+}
