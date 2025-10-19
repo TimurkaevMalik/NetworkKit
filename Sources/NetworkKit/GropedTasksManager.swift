@@ -8,7 +8,7 @@
 import Foundation
 
 @available(iOS 13.0, *)
-final class GropedTasksManager<TaskGroup: Hashable, TaskID: Hashable> {
+final class GroupedTasksManager<TaskGroup: Hashable, TaskID: Hashable> {
     
     private var tasks: [TaskKey: Task<(), Never>] = [:]
     
@@ -19,7 +19,7 @@ final class GropedTasksManager<TaskGroup: Hashable, TaskID: Hashable> {
 }
 
 @available(iOS 13.0, *)
-extension GropedTasksManager {
+extension GroupedTasksManager {
     func set(task: Task<(), Never>, for key: TaskKey) {
         tasks[key] = task
     }
@@ -37,7 +37,7 @@ extension GropedTasksManager {
         tasks.removeAll()
     }
     
-    func makeKey(_ key: TaskKey) -> TaskKey {
-        key
+    func makeKey(group: TaskGroup, taskID: TaskID) -> TaskKey {
+        TaskKey(group: group, taskID: taskID)
     }
 }
