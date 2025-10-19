@@ -7,7 +7,6 @@
 
 import Foundation
 
-@available(iOS 13.0, *)
 public final class GroupedTasksManager<TaskGroup: Hashable, TaskID: Hashable> {
     
     private var tasks: [TaskKey: Task<(), Never>] = [:]
@@ -16,9 +15,10 @@ public final class GroupedTasksManager<TaskGroup: Hashable, TaskID: Hashable> {
         public let group: TaskGroup
         public let taskID: TaskID
     }
+    
+    public init() {}
 }
 
-@available(iOS 13.0, *)
 public extension GroupedTasksManager {
     func set(task: Task<(), Never>, for key: TaskKey) {
         tasks[key] = task
