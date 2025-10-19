@@ -1,5 +1,5 @@
 //
-//  GropedTasksManager.swift
+//  GroupedTasksManager.swift
 //  NetworkKit
 //
 //  Created by Malik Timurkaev on 19.10.2025.
@@ -8,18 +8,18 @@
 import Foundation
 
 @available(iOS 13.0, *)
-final class GroupedTasksManager<TaskGroup: Hashable, TaskID: Hashable> {
+public final class GroupedTasksManager<TaskGroup: Hashable, TaskID: Hashable> {
     
     private var tasks: [TaskKey: Task<(), Never>] = [:]
     
-    struct TaskKey: Hashable {
-        let group: TaskGroup
-        let taskID: TaskID
+    public struct TaskKey: Hashable {
+        public let group: TaskGroup
+        public let taskID: TaskID
     }
 }
 
 @available(iOS 13.0, *)
-extension GroupedTasksManager {
+public extension GroupedTasksManager {
     func set(task: Task<(), Never>, for key: TaskKey) {
         tasks[key] = task
     }
