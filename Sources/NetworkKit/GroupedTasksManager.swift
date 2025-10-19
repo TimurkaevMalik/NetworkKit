@@ -29,7 +29,8 @@ public extension GroupedTasksManager {
     }
     
     func remove(for key: TaskKey) {
-        tasks.removeValue(forKey: key)
+        let task = tasks.removeValue(forKey: key)
+        task?.cancel()
     }
     
     func removeAll() {
