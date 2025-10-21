@@ -4,6 +4,7 @@
 import PackageDescription
 
 let kitName = "NetworkKit"
+
 let package = Package(
     name: kitName,
     platforms: [.iOS(.v13)],
