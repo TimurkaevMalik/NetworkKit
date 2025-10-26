@@ -4,10 +4,14 @@
 import PackageDescription
 
 let kitName = "NetworkKit"
+let kitNameDynamic = "NetworkKit-Dynamic"
 
 let package = Package(
     name: kitName,
     platforms: [.iOS(.v13)],
-    products: [.library(name: kitName, type: .dynamic, targets: [kitName])],
+    products: [
+        .library(name: kitName, targets: [kitName]),
+        .library(name: kitNameDynamic, type: .dynamic, targets: [kitName])
+    ],
     targets: [.target(name: kitName)]
 )
